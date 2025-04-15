@@ -1,5 +1,6 @@
 package com.influencer.education.student.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class University {
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
             orphanRemoval = true)
+    @JsonIgnore
     private List<Student> students;
 
     public Integer getId() {

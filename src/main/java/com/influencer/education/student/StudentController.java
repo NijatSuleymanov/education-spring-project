@@ -30,4 +30,9 @@ public class StudentController {
     public void save(@RequestBody Student student) {
         studentRepo.insert(student);
     }
+
+    @DeleteMapping
+    public void delete(@RequestParam Integer id) {
+        studentRepo.delete(id);
+    }
 }

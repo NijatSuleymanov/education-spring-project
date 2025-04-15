@@ -37,8 +37,13 @@ public class StudentRepo implements IStudentRepo {
     public void update(Student obj) {
         //
     }
-    public void delete(Student obj) {
-        //
+
+
+
+    @Transactional
+    public void delete(Integer id) {
+        final Student t = em.find(Student.class, id);
+        em.remove(t);
     }
     @Transactional(rollbackFor = SQLException.class)
     public void insert(Student obj) {

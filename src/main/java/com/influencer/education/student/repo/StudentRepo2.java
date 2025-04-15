@@ -32,9 +32,11 @@ public class StudentRepo2 implements IStudentRepo {
     public void update(Student obj) {
         //
     }
-    public void delete(Student obj) {
+    public void delete(Integer id) {
         //
     }
+
+
 
     public void insert(Student obj) {
         //

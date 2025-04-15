@@ -10,7 +10,7 @@ public interface IStudentRepo {
 
     void update(Student obj);
 
-    void delete(Student obj);
+    void delete(Integer id);
 
     void insert(Student obj);
 
