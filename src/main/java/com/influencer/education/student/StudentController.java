@@ -1,9 +1,7 @@
 package com.influencer.education.student;
 import com.influencer.education.student.entity.Student;
-import com.influencer.education.student.entity.StudentProjection;
-import com.influencer.education.student.repo.IStudentRepo;
-import com.influencer.education.student.repo.MyDataStudentRepo;
-import com.influencer.education.student.repo.StudentRepo;
+import com.influencer.education.student.repo.StudentRepoData;
+import com.influencer.education.student.repo.CustomStudentRepo;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,27 +10,32 @@ import java.util.List;
 @RequestMapping("/students")
 public class StudentController {
 
-    private final StudentRepo studentRepo;
+    private final CustomStudentRepo studentRepo;
 
-    private final MyDataStudentRepo myDataStudentRepo;
+    private final StudentRepoData myDataStudentRepo;
 
-    public StudentController( final StudentRepo studentRepo, final MyDataStudentRepo myDataStudentRepo) {
+    public StudentController(final CustomStudentRepo studentRepo, final StudentRepoData myDataStudentRepo) {
         this.studentRepo = studentRepo;
         this.myDataStudentRepo = myDataStudentRepo;
     }
 
     @GetMapping
-    public List<Student> getList(){
-          return myDataStudentRepo.findAll();
+    public List<Student> getList(
+          @RequestParam(required = false) String name,
+          @RequestParam(required = false) String surname,
+          @RequestParam(required = false) String email ,
+          @RequestParam(required = false, name = "university_id") Integer universityId,
+          @RequestParam(required = false) Integer age){
+          return studentRepo.getList(name,surname,email,universityId,age);
     }
 
     @PostMapping
     public void save(@RequestBody Student student) {
-        studentRepo.insert(student);
+        myDataStudentRepo.save(student);
     }
 
     @DeleteMapping
     public void delete(@RequestParam Integer id) {
-        studentRepo.delete(id);
+        myDataStudentRepo.deleteById(id);
     }
 }

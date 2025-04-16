@@ -20,9 +20,41 @@ function getStudents(){
         document.getElementById("tbl-students-body").innerHTML = tblBody ;
     }
     xhttp.onload = MyFunction;
-    xhttp.open("GET","http://localhost:9090/education/students");
+    xhttp.open("GET","http://localhost:9090/education/students?" +
+        "name=" + val("name") + "&" +
+        "surname=" + val("surname") + "&" +
+        "email=" + val("email") + "&" +
+        "age=" + val("age") + "&" +
+        "university_id=" + val("university_id"));
     xhttp.send();
 }
+
+function getUniversities(){
+    const xhttp = new XMLHttpRequest();
+    function MyFunction(){
+        const responseArr = JSON.parse(this.responseText);
+        var optionsHtml = '<option value="" selected></option>';
+        for(var i = 0; i < responseArr.length; i++){
+            var university = responseArr[i];
+
+            optionsHtml += '<option value="'
+                + university.id +
+                '">'
+                + university.name +
+                '</option>';
+        }
+
+        document.getElementById("university_id").innerHTML = optionsHtml;
+    }
+    xhttp.onload = MyFunction;
+    xhttp.open("GET","http://localhost:9090/education/university");
+    xhttp.send();
+}
+function val(elementId){
+    var value = document.getElementById(elementId).value;
+    return value!==null && value!=='undefined'? value:'';
+}
+
 var selectedId;
 function select(id){
     selectedId = id;
@@ -37,5 +69,8 @@ function deleteStudent(id){
     xhttp.open("DELETE","http://localhost:9090/education/students?id="+id);
     xhttp.send();
 }
+
+
 window.addEventListener("load", getStudents);
+window.addEventListener("load", getUniversities);
 
