@@ -4,7 +4,7 @@ function getStudents(){
     const xhttp = new XMLHttpRequest();
     function MyFunction(){
         const responseText = this.responseText;
-        const responseArr = JSON.parse(responseText);
+        const responseArr = JSON.parse(responseText).obj;
         allStudents = responseArr;
         var tr = document.getElementById("tbl-students-body-tr").innerHTML;
         var tblBody = "";

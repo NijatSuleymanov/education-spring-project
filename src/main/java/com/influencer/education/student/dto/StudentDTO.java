@@ -1,6 +1,5 @@
 package com.influencer.education.student.dto;
 
-import com.influencer.education.student.entity.University;
 
 public class StudentDTO {
     private  Integer id;
