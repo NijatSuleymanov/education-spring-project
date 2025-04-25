@@ -1,5 +1,5 @@
-package com.influencer.education.student.repo;
-import com.influencer.education.student.entity.Student;
+package com.influencer.education.repo;
+import com.influencer.education.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;

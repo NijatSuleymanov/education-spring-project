@@ -1,6 +1,6 @@
-package com.influencer.education.student.repo;
+package com.influencer.education.repo;
 
-import com.influencer.education.student.entity.Student;
+import com.influencer.education.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,9 +1,8 @@
-package com.influencer.education.student.dto;
+package com.influencer.education.dto;
 
 
-import com.influencer.education.student.entity.Student;
+import com.influencer.education.entity.Student;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper

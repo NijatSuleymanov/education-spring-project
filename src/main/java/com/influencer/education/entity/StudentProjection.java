@@ -1,4 +1,4 @@
-package com.influencer.education.student.entity;
+package com.influencer.education.entity;
 
 public interface StudentProjection {
 

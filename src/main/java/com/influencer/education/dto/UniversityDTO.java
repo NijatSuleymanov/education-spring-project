@@ -1,4 +1,4 @@
-package com.influencer.education.student.dto;
+package com.influencer.education.dto;
 
 public class UniversityDTO {
 

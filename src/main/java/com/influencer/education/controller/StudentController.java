@@ -1,18 +1,12 @@
-package com.influencer.education.student;
+package com.influencer.education.controller;
 import com.influencer.education.common.dto.CommonDTO;
-import com.influencer.education.student.dto.StudentDTO;
-import com.influencer.education.student.dto.StudentMapper;
-import com.influencer.education.student.dto.UniversityDTO;
-import com.influencer.education.student.entity.Student;
-import com.influencer.education.student.entity.University;
-import com.influencer.education.student.repo.StudentRepoData;
-import com.influencer.education.student.repo.CustomStudentRepo;
-import org.mapstruct.factory.Mappers;
+import com.influencer.education.dto.StudentDTO;
+import com.influencer.education.dto.StudentMapper;
+import com.influencer.education.repo.StudentRepoData;
+import com.influencer.education.repo.CustomStudentRepo;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController

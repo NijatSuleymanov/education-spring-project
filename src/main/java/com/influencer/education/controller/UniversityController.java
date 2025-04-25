@@ -1,6 +1,6 @@
-package com.influencer.education.student;
-import com.influencer.education.student.entity.University;
-import com.influencer.education.student.repo.MyDataUniversityRepo;
+package com.influencer.education.controller;
+import com.influencer.education.entity.University;
+import com.influencer.education.repo.MyDataUniversityRepo;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +16,11 @@ public class UniversityController {
     }
 
     @GetMapping
-    public List<University> getList(){
+    public List<University> getList(@RequestParam(required = false) String name) {
+
+        if ("TEST".equalsIgnoreCase(name)) {
+            throw new IllegalArgumentException("TEST -e icaze yoxdur");
+        }
          return dataRepo.findAll();
     }
 

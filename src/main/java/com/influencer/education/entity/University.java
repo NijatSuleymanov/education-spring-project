@@ -1,4 +1,4 @@
-package com.influencer.education.student.entity;
+package com.influencer.education.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -11,12 +11,13 @@ public class University {
     @Id
     private Integer id;
     private String name;
+    @JsonIgnore
     @OneToMany(mappedBy = "university",
             targetEntity = Student.class,
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
             orphanRemoval = true)
-    @JsonIgnore
+
     private List<Student> students;
 
     public Integer getId() {
